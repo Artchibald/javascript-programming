@@ -285,9 +285,9 @@ for  (
          a = 5;  /*initialisation clause*/
          a < 10 ;  /*conditional clause*/
           a++ )  /*update clause*/
-          {
-console.log(a);
-}
+                        {
+                console.log(a);
+                }
 ```
 5
 6
@@ -314,4 +314,55 @@ while (true) {
 }
 ```
 
-this will run forever. we need annintialisation clause to tellitwhen to stop.
+this will run forever. we need an intialisation clause to tell it when to stop.
+
+```
+a=5;
+
+while (true) {
+    if {a>=10}{
+        console.log(a);
+        a=a+1;
+    }
+}
+```
+
+this is conceptually how all loops run. They run until they stop.
+
+## functions
+```
+function foo(){
+    a = a * 2;
+    a = a + 3;
+}
+var a = 10;
+
+foo();
+console.log(a);
+```
+
+Be consistent if you want to keep all your vars at the top thats good.
+
+```
+function foo(b){/*b is a parameter, you can have multiple with comments.*/
+    a = a * 2;
+    a = a + b;
+}
+var a = 10;
+
+foo(3);
+console.log(a);
+```
+
+functions can also return values 
+
+```
+function foo(b){
+    a = a * 2;
+    a = a + b;
+    return a / 2;
+}
+function bar(){ .. } 
+foo( bar() );
+
+```
