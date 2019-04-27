@@ -23,16 +23,18 @@
     <script>
         let myPhoneCost = 99.99;
         let coolPhoneAccesory = 29.99;
+        let myAccountBalance = 1000;
         const myTax = 0.08; /* 8% */
-        let myTotalBillTaxed;
 
-        for (myBankAccountBalance = 999; myBankAccountBalance < 1000; myBankAccountBalance++) {
-            myPhoneCost = myPhoneCost + coolPhoneAccesory;
-            //add tax
-            myTotalBillTaxed = myTax * myPhoneCost;
-            console.log(myTotalBillTaxed);
+
+        // for each time i spend 99 dollards make sure it stays under 1000 dollars
+        for (aDollar = 1; aDollar < myAccountBalance; aDollar++) {
+            myPhoneCost++;
         }
 
+
+
+        console.log(myPhoneCost);
 
 
     </script>
