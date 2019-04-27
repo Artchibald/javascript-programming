@@ -51,7 +51,6 @@ Code can move backwards because of this. What is more precedent.
 
 To overwrite this multiplication, we can use parenthesis!
 
-
 ```
 a = b * (2 + foo(c * 3));
 
@@ -67,3 +66,252 @@ a = b + 2 *  foo(c * 3);
 ```
 
 Now the second part takes precedence. We tweaked left to write processing.
+
+## Executing a program
+
+  The javascript engine.
+
+  ```
+  a = 2;
+  ```
+  means give a the value of 2
+  ```
+  a = 2;
+  becomes
+  0101010100100101010101010010101
+
+  ```
+
+  ## Interpretation
+  
+  CPU is on line 1 now and doesn't know what's on line 2. 
+
+  If you run
+
+  ```
+  a = 2;
+  2();
+  ```
+  ERROR. Line 1 doesn't even really run because of the error on line 2. It always CATCHES at the beginningn and throws the error and breaks. Tnis is good thing, because you catch errors straight away rather than later all tangled.
+
+  This mean JS is a compiled language.
+
+  JS has both 
+
+  error on runtime
+  and error in code
+  
+  Usually cpu languages analyse everything then take action.
+
+  errors in compiler phase: 3 =2; error.
+
+  ## Can you run JS in command line?
+
+  Node.js does this. E is for execute.
+
+  ```
+node -e "a = 2;"
+
+  ```
+
+Alert isn't defined by JS.
+
+It's defined by the browser.
+
+Node doesn't have alert. 
+
+Developers use console.log(a);.
+
+console log means what ever my last statement was, print it back.
+
+Try this in the inspector:
+
+```
+var age = prompt("whatsup?");
+undefined
+console.log(age);
+VM2164:1 ok
+
+```
+
+## ALL YOUR BASIC OPERATORS (AGAIN)
+
+Assignment: = as in a = 2.
+Math: + (addition), - (subtraction), * (multiplication), and / (division), as in a * 3.
+Compound Assignment: +=, -=, *=, and /= are compound operators that combine a math operation with assignment, as in a += 2 (same as a = a + 2).
+Increment/Decrement: ++ (increment), -- (decrement), as in a++ (similar to a = a + 1).
+Object Property Access: . as in console.log().
+Objects are values that hold other values at specific named locations called properties. obj.a means an object value called obj with a property of the name a. Properties can alternatively be accessed as obj["a"]. See Chapter 2.
+Equality: == (loose-equals), === (strict-equals), != (loose not-equals), !== (strict not-equals), as in a == b.
+See "Values & Types" and Chapter 2.
+Comparison: < (less than), > (greater than), <= (less than or loose-equals), >= (greater than or loose-equals), as in a <= b.
+See "Values & Types" and Chapter 2.
+Logical: && (and), || (or), as in a || b that selects either a or b.
+
+shortcut operator
+```
+a = a + 2;
+a += 2;
+```
+
+Every variable should be formerly declared.
+
+a = 42; is a bad idea.
+
+this is better:
+
+var a = 42;
+
+
+the three ways to declare variables
+
+const = a;
+let = b;
+var = c;
+
+function d() {
+
+}
+
+## blocks
+
+you can pair vars together to be reusable
+
+```
+{
+var = a;
+foo(a/2)
+}
+```
+
+this block is standalone.
+
+Some statements use the blocks
+
+```
+
+var b;
+
+if (a > 10) {
+    var a = 42;
+    foo(a/2);
+}
+var c;
+
+```
+
+Is that statement true? yes, execute the block. Blocks also appear in functions.
+
+```
+var a = 42;
+
+function foo() {
+    var a = 10;
+    bar(a / 2);
+}
+var c;
+```
+
+## Different function declarations
+
+```
+function foo() {} // function declaration
+
+var bar = function(){} //function expression attached to a variable declaration
+var bar = function baz() {}   //function expression attached to a variable declaration
+```
+the block is associated to a function and the block wont run unless you run the function
+
+## conditional block statement
+
+```
+
+var a = 10;
+if (a > 5) {
+    a = a * 2;
+}
+
+```
+
+Falsy values
+
+"falsy"
+
+0 
+-0 
+NaN
+""
+false
+null
+undefined
+
+
+If it's not on this list it's true:
+
+```
+var a = 10;
+if (a) {
+    a = a * 2;
+}
+20
+```
+
+If a was 0 it would be a falsy value.
+
+void means make everything after undefined.
+
+```
+void 42;
+undefined
+```
+
+## Loops
+
+```
+if (a) {..}
+// will di it until false
+while (a > 10) {
+}
+//when the thing is false stop doing it
+//for loop:
+for  ( a = 5;  a < 10 ;  a++ ) {
+console.log(a);
+}
+```
+
+try this in browser:
+```
+for  (
+         a = 5;  /*initialisation clause*/
+         a < 10 ;  /*conditional clause*/
+          a++ )  /*update clause*/
+          {
+console.log(a);
+}
+```
+5
+6
+7
+8
+9
+undefined
+
+```
+for ( ; ; ) {}
+
+```
+
+# This will run forever because it has a condition that never FAILS
+
+### break
+
+```
+while (true) {
+    if (a >= 10) {
+        break; /*break stops the loop*/
+    }
+
+}
+```
+
+this will run forever. we need annintialisation clause to tellitwhen to stop.
