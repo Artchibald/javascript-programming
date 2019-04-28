@@ -362,7 +362,14 @@ function foo(b){
     a = a + b;
     return a / 2;
 }
-function bar(){ .. } 
-foo( bar() );
-
+var a = 10;
+var b = foo(3);
+console.log(a);
+console.log(b);
 ```
+result 11.5 & 23
+in es6, you can have default paramter values
+
+# Returns in function
+
+use return phoneCost * myTax not phoneCost = phoneCost * myTax

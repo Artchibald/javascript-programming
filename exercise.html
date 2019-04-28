@@ -24,17 +24,38 @@
         let myPhoneCost = 99.99;
         let coolPhoneAccesory = 29.99;
         let myAccountBalance = 1000;
-        const myTax = 0.08; /* 8% */
+        let totalWithTax = 0.08; /* 8% */
 
 
         // for each time i spend 99 dollards make sure it stays under 1000 dollars
-        for (aDollar = 1; aDollar < myAccountBalance; aDollar++) {
-            myPhoneCost++;
+        function addTax() {
+            totalWithTax = myPhoneCost * totalWithTax;
+            totalWithTax = myPhoneCost + totalWithTax;
+            //replace with the new value with tax
+            myPhoneCost = totalWithTax;
         }
 
 
+        function addAccessory() {
+            totalWithTax = 0.08;
+            totalWithTax = coolPhoneAccesory * totalWithTax;
+            totalWithTax = coolPhoneAccesory + totalWithTax;
+            // replace with the new value with tax
+            coolPhoneAccesory = totalWithTax;
+            myPhoneCost = coolPhoneAccesory + myPhoneCost;
+        }
 
-        console.log(myPhoneCost);
+        // if myphone cost is more than acc balance , stop the functions above.
+        while (myPhoneCost > myAccountBalance) {
+            addTax();
+            addAccessory();
+        };
+
+        for (myPhoneCost = myPhoneCost; myPhoneCost < myAccountBalance; myPhoneCost++) {
+            console.log(myPhoneCost);
+        }
+
+
 
 
     </script>
